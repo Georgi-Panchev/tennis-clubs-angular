@@ -17,8 +17,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint",
-        "eslint-plugin-html"
+        "@typescript-eslint"
     ],
     "rules": {
         "indent": [
