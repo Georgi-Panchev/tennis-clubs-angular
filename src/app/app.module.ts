@@ -7,6 +7,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ResponseHandlerInterceptor } from './core/interceptors/response-handler.interceptor';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -18,7 +22,10 @@ import { AppComponent } from './app.component';
         AppRoutingModule,
         CoreModule
     ],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ResponseHandlerInterceptor, multi: true }
+    ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}
