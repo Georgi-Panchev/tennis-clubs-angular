@@ -11,6 +11,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ResponseHandlerInterceptor } from './core/interceptors/response-handler.interceptor';
 
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducers';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -20,7 +23,8 @@ import { ResponseHandlerInterceptor } from './core/interceptors/response-handler
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
         AppRoutingModule,
-        CoreModule
+        CoreModule,
+        StoreModule.forRoot(appReducers)
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
