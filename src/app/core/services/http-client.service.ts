@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'http://localhost:8000';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class HttpClientService {
     // eslint-disable-next-line no-useless-constructor
     constructor(private httpClient: HttpClient) {}
