@@ -1,0 +1,62 @@
+<div class="col-6 m-auto text-center">
+    <h3 class="mb-5">Register User</h3>
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+        <div class="form-group">
+            <label for="username">Username: </label>
+            <input type="text" class="form-control" id="username"
+                   name="username" ngModel #usernameModel="ngModel"
+                   required minlength="3" maxlength="10">
+
+            <div class="alert alert-danger"
+                 [hidden]="!usernameModel.touched
+             || !usernameModel.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger"
+                 [hidden]="!usernameModel.errors?.minlength">
+                Username must be between 3 and 10 characters long!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" id="password"
+                   name="password" ngModel #passwordModel="ngModel"
+                   required minlength="3" maxlength="10">
+
+            <div class="alert alert-danger"
+                 [hidden]="!passwordModel.touched
+             || !passwordModel.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger"
+                 [hidden]="!passwordModel.errors?.minlength">
+                Password must be between 3 and 10 characters long!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password: </label>
+            <input type="password" class="form-control" id="confirmPassword"
+                   name="confirmPassword" ngModel #confirmPasswordModel="ngModel"
+                   required minlength="3" maxlength="10">
+
+            <div class="alert alert-danger"
+                 [hidden]="!confirmPasswordModel.touched
+             || !confirmPasswordModel.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger"
+                 [hidden]="confirmPasswordModel.pristine
+             || passwordModel.value === confirmPasswordModel.value">
+                Passwords do not match!
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-5"
+                [disabled]="!registerForm.form.valid
+            || passwordModel.value !== confirmPasswordModel.value">
+            Register User
+        </button>
+    </form>
+</div>
