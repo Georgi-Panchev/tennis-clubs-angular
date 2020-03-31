@@ -11,6 +11,9 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     imports: [
         CommonModule,
         FormsModule
+    ],
+    exports: [
+        UserRegisterComponent
     ]
 })
 export class UsersModule {}

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserModel } from '../shared/user.model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -8,12 +8,10 @@ import { UserActions } from '../../store/users/user.actions';
 
 @Component({
     selector: 'app-user-register',
-    templateUrl: './user-register.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: './user-register.component.html'
 })
 export class UserRegisterComponent implements OnDestroy {
     private subscription: Subscription = new Subscription();
-
     // eslint-disable-next-line no-useless-constructor
     constructor(
         private router: Router,
@@ -25,20 +23,19 @@ export class UserRegisterComponent implements OnDestroy {
         console.log(user);
         this.usersActions.register(user);
 
-        this.subscription.add(
-            this.store
-                .select((state: AppState) => state.users.isUserRegistered)
-                .subscribe((isUserRegistered: boolean) => {
-                    if (isUserRegistered) {
-                        this.router.navigateByUrl('users/login');
-                    }
-                })
-        );
+        this.subscription
+            .add(
+                this.store
+                    .select((state: AppState) => state.users.isUserRegistered)
+                    .subscribe((isUserRegistered: boolean) => {
+                        if (isUserRegistered) {
+                            this.router.navigateByUrl('users/login');
+                        }
+                    })
+            );
     }
 
     ngOnDestroy(): void {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
+        this.subscription.unsubscribe();
     }
 }

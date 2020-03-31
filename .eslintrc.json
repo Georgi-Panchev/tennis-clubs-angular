@@ -36,6 +36,10 @@
         "array-bracket-spacing": [
             "error",
             "always"
+        ],
+        "arrow-parens": [
+            "error",
+            "always"
         ]
     }
 }
