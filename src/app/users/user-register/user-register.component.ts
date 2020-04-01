@@ -23,16 +23,15 @@ export class UserRegisterComponent implements OnDestroy {
         console.log(user);
         this.usersActions.register(user);
 
-        this.subscription
-            .add(
-                this.store
-                    .select((state: AppState) => state.users.isUserRegistered)
-                    .subscribe((isUserRegistered: boolean) => {
-                        if (isUserRegistered) {
-                            this.router.navigateByUrl('users/login');
-                        }
-                    })
-            );
+        this.subscription.add(
+            this.store
+                .select((state: AppState) => state.users.isUserRegistered)
+                .subscribe((isUserRegistered: boolean) => {
+                    if (isUserRegistered) {
+                        this.router.navigateByUrl('users/login');
+                    }
+                })
+        );
     }
 
     ngOnDestroy(): void {

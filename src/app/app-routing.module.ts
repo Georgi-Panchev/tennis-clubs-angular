@@ -1,10 +1,39 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { HomeComponent } from './core/components/home/home.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+
+const routes: Routes = [
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'users',
+        loadChildren: './users/users.module#UsersModule'
+    },
+    {
+        path: 'tennis-clubs',
+        loadChildren: './tennis-clubs/tennis-clubs.module#TennisClubsModule'
+    },
+    {
+        path: 'tennis-tournaments',
+        loadChildren: './tennis-tournaments/tennis-tournaments.module#TennisTournamentsModule'
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
+    }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
