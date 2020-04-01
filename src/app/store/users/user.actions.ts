@@ -5,6 +5,7 @@ import { UserService } from '../../users/shared/user.service';
 
 export const REGISTER_USER = 'REGISTER_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 @Injectable({
     providedIn: 'root'
@@ -34,5 +35,11 @@ export class UserActions {
                     payload: response
                 });
             });
+    }
+
+    logout() {
+        this.store.dispatch({
+            type: LOGOUT_USER
+        });
     }
 }
