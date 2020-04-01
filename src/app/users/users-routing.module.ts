@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuestActivate } from '../core/guards/auth-guest-activate.guard';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
     {
@@ -15,6 +16,11 @@ const routes: Routes = [
         path: 'register',
         canActivate: [ AuthGuestActivate ],
         component: UserRegisterComponent
+    },
+    {
+        path: 'login',
+        canActivate: [ AuthGuestActivate ],
+        component: UserLoginComponent
     }
 ];
 
