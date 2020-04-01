@@ -1,0 +1,43 @@
+<div class="col-6 m-auto text-center">
+    <h3 class="mb-5">Login User</h3>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+        <div class="form-group">
+            <label for="username">Username: </label>
+            <input type="text" class="form-control" id="username"
+                   name="username" ngModel #usernameModel="ngModel"
+                   required minlength="3" maxlength="10">
+
+            <div class="alert alert-danger"
+                 [hidden]="!usernameModel.touched
+             || !usernameModel.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger"
+                 [hidden]="!usernameModel.errors?.minlength">
+                Username must be between 3 and 10 characters long!
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" id="password"
+                   name="password" ngModel #passwordModel="ngModel"
+                   required minlength="3" maxlength="10">
+
+            <div class="alert alert-danger"
+                 [hidden]="!passwordModel.touched
+             || !passwordModel.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger"
+                 [hidden]="!passwordModel.errors?.minlength">
+                Password must be between 3 and 10 characters long!
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-5"
+                [disabled]="!loginForm.form.valid">
+            Login User
+        </button>
+    </form>
+</div>

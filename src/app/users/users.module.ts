@@ -3,17 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
     declarations: [
-        UserRegisterComponent
+        UserRegisterComponent,
+        UserLoginComponent
     ],
     imports: [
         CommonModule,
         FormsModule
-    ],
-    exports: [
-        UserRegisterComponent
     ]
 })
 export class UsersModule {}
