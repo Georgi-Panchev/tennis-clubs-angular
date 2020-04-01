@@ -1,5 +1,5 @@
 import { initialState, UserState } from './user.state';
-import { REGISTER_USER, LOGIN_USER } from './user.actions';
+import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from './user.actions';
 
 function register(state, action) {
     const payload = action.payload;
@@ -17,12 +17,26 @@ function login(state, action) {
     });
 }
 
+function logout(state) {
+    return Object.assign({}, state, {
+        isUserAuthenticated: false,
+        token: null,
+        user: {
+            userId: null,
+            username: null,
+            roles: []
+        }
+    });
+}
+
 export function userReducers(state: UserState = initialState, action) {
     switch (action.type) {
         case REGISTER_USER:
             return register(state, action);
         case LOGIN_USER:
             return login(state, action);
+        case LOGOUT_USER:
+            return logout(state);
         default:
             return state;
     }
