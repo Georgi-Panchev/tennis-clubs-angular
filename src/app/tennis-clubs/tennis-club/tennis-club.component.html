@@ -1,0 +1,19 @@
+<div class="col mb-4">
+    <div class="card text-center" style="height: 25rem">
+        <img [src]="tennisClub.imageUrl" class="card-img-top" style="height: 15rem" alt="pic">
+        <div class="card-body">
+            <h5 class="card-title">{{tennisClub.title}}</h5>
+            <p class="card-text">{{tennisClub.city}}</p>
+            <a *ngIf="userState.isUserAuthenticated"
+               [routerLink]="[ '/tennis-clubs', tennisClub._id, 'details' ]"
+               class="btn btn-primary">
+                Details
+            </a>
+            <button type="button" class="btn btn-danger ml-1 mr-1"
+                    *ngIf="userState.user.roles.includes('Admin')"
+                    (click)="removeClub(tennisClub._id)">
+                Delete
+            </button>
+        </div>
+    </div>
+</div>
