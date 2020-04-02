@@ -4,6 +4,7 @@ import { AppState } from '../app.state';
 import { TennisClubService } from '../../tennis-clubs/shared/tennis-club.service';
 
 export const CREATE_TENNIS_CLUB = 'CREATE_TENNIS_CLUB';
+export const READ_TENNIS_CLUB_LIST = 'READ_TENNIS_CLUB_LIST';
 
 @Injectable({
     providedIn: 'root'
