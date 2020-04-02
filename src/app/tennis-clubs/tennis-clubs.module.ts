@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TennisClubsRoutingModule } from './tennis-clubs-routing.module';
 
 import { TennisClubFormComponent } from './tennis-club-form/tennis-club-form.component';
 import { TennisClubCreateComponent } from './tennis-club-create/tennis-club-create.component';
@@ -16,7 +17,8 @@ import { TennisClubListComponent } from './tennis-club-list/tennis-club-list.com
     ],
     imports: [
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TennisClubsRoutingModule
     ]
 })
 export class TennisClubsModule {}
