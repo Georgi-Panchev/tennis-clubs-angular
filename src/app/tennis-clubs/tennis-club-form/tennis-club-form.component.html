@@ -1,0 +1,88 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+        <div class="form-group col">
+            <label for="title">Title: </label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.title.touched && formControls.title.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.title.errors?.minlength">
+                Title must be at least 3 characters long!
+            </div>
+        </div>
+
+        <div class="form-group col">
+            <label for="imageUrl">Image Url: </label>
+            <input type="url" class="form-control" id="imageUrl" formControlName="imageUrl">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.imageUrl.touched && formControls.imageUrl.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.imageUrl.errors?.pattern">
+                Image Url must be valid!
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            <label for="city">City: </label>
+            <select class="form-control" id="city" formControlName="city">
+                <option value="" disabled selected>Select one of options below</option>
+                <option [value]="city" *ngFor="let city of cityList">{{city}}</option>
+            </select>
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.city.touched && formControls.city.errors?.required">
+                This field is required!
+            </div>
+        </div>
+
+        <div class="form-group col">
+            <label for="rank">Rank: </label>
+            <select class="form-control" id="rank" formControlName="rank">
+                <option value="" disabled selected>Select one of options below</option>
+                <option [value]="rank" *ngFor="let rank of rankList">{{rank}}</option>
+            </select>
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.rank.touched && formControls.rank.errors?.required">
+                This field is required!
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            <label for="courts">Courts: </label>
+            <input type="number" class="form-control" id="courts" formControlName="courts">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.courts.touched && formControls.courts.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.courts.errors?.min">
+                Courts value must be at least one!
+            </div>
+        </div>
+
+        <div class="form-check-inline mt-4">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="hasLighting" formControlName="hasLighting">
+                <label class="form-check-label" for="hasLighting">Lighting</label>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="hasIndoorCourts" formControlName="hasIndoorCourts">
+                <label class="form-check-label" for="hasIndoorCourts">Indoor Courts</label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-5" [disabled]="form.invalid">
+        {{buttonText}}
+    </button>
+</form>
