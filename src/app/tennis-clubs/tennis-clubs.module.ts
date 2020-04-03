@@ -7,13 +7,15 @@ import { TennisClubFormComponent } from './tennis-club-form/tennis-club-form.com
 import { TennisClubCreateComponent } from './tennis-club-create/tennis-club-create.component';
 import { TennisClubComponent } from './tennis-club/tennis-club.component';
 import { TennisClubListComponent } from './tennis-club-list/tennis-club-list.component';
+import { TennisClubDetailsComponent } from './tennis-club-details/tennis-club-details.component';
 
 @NgModule({
     declarations: [
         TennisClubFormComponent,
         TennisClubCreateComponent,
         TennisClubComponent,
-        TennisClubListComponent
+        TennisClubListComponent,
+        TennisClubDetailsComponent
     ],
     imports: [
         CommonModule,

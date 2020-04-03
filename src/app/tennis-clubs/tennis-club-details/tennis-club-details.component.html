@@ -1,0 +1,31 @@
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img [src]="tennisClub.imageUrl" class="card-img" style="height: 20rem; width: 20rem" alt="pic">
+        </div>
+        <div class="jumbotron col-8 text-center" style="height: 20rem;">
+            <h1 class="display-4">{{tennisClub.title}}</h1>
+            <h3 class="display-4">{{tennisClub.city}}</h3>
+        </div>
+        <ul class="list-group list-group-horizontal col-12">
+            <li class="list-group-item flex-fill">Rank: {{tennisClub.rank}}</li>
+            <li class="list-group-item flex-fill">Courts: {{tennisClub.courts}}</li>
+            <li class="list-group-item flex-fill" *ngIf="tennisClub.hasLighting">Lighting</li>
+            <li class="list-group-item flex-fill" *ngIf="tennisClub.hasIndoorCourts">Indoor Courts</li>
+        </ul>
+        <div class="jumbotron col-12 text-center" *ngIf="isUserAdmin">
+            <button type="button" class="btn btn-primary ml-1 mr-1"
+                    [routerLink]="[ '/tennis-tournaments', 'create', tennisClub._id ]">
+                Create Tennis Tournament
+            </button>
+            <button type="button" class="btn btn-success ml-1 mr-1"
+                    [routerLink]="[ '/tennis-tournaments/list', tennisClub._id ]">
+                Tennis Club Tournaments
+            </button>
+            <button type="button" class="btn btn-primary ml-1 mr-1"
+                    [routerLink]="[ '/tennis-clubs', tennisClub._id, 'edit' ]">
+                Edit Tennis Club
+            </button>
+        </div>
+    </div>
+</div>
