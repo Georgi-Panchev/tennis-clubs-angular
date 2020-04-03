@@ -1,0 +1,8 @@
+<div class="text-center">
+    <h3 class="mb-5">Edit Tennis Club</h3>
+    <app-tennis-club-form
+        (formEventEmitter)="edit($event)"
+        [tennisClub]="tennisClub"
+        [buttonText]="'Edit Tennis Club'">
+    </app-tennis-club-form>
+</div>

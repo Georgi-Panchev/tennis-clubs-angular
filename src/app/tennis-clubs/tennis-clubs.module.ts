@@ -8,6 +8,7 @@ import { TennisClubCreateComponent } from './tennis-club-create/tennis-club-crea
 import { TennisClubComponent } from './tennis-club/tennis-club.component';
 import { TennisClubListComponent } from './tennis-club-list/tennis-club-list.component';
 import { TennisClubDetailsComponent } from './tennis-club-details/tennis-club-details.component';
+import { TennisClubEditComponent } from './tennis-club-edit/tennis-club-edit.component';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { TennisClubDetailsComponent } from './tennis-club-details/tennis-club-de
         TennisClubCreateComponent,
         TennisClubComponent,
         TennisClubListComponent,
-        TennisClubDetailsComponent
+        TennisClubDetailsComponent,
+        TennisClubEditComponent
     ],
     imports: [
         CommonModule,
