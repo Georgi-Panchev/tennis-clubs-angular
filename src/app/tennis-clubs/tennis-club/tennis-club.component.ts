@@ -2,6 +2,8 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { TennisClubActions } from '../../store/tennis-clubs/tennis-club.actions';
 import { UserState } from '../../store/users/user.state';
 
 @Component({
@@ -14,7 +16,9 @@ export class TennisClubComponent implements OnDestroy {
     userState = null;
 
     constructor(
-        private store: Store<AppState>
+        private store: Store<AppState>,
+        private router: Router,
+        private tennisClubActions: TennisClubActions
     ) {
         this.subscription.add(
             this.store
@@ -24,7 +28,17 @@ export class TennisClubComponent implements OnDestroy {
     }
 
     removeClub(tennisClubId) {
+        this.tennisClubActions.remove(tennisClubId);
 
+        this.subscription.add(
+            this.store
+                .select((state: AppState) => state.tennisClubs.isTennisClubRemoved)
+                .subscribe((isTennisClubRemoved: boolean) => {
+                    if (isTennisClubRemoved) {
+                        this.router.navigateByUrl('tennis-clubs/list');
+                    }
+                })
+        );
     }
 
     ngOnDestroy(): void {
