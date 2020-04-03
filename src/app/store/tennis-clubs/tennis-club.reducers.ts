@@ -3,7 +3,8 @@ import {
     CREATE_TENNIS_CLUB,
     READ_TENNIS_CLUB_LIST,
     READ_ONE_TENNIS_CLUB,
-    EDIT_TENNIS_CLUB
+    EDIT_TENNIS_CLUB,
+    REMOVE_TENNIS_CLUB
 } from './tennis-club.actions';
 
 function create(state, action) {
@@ -34,6 +35,20 @@ function edit(state, action) {
     });
 }
 
+function remove(state, action) {
+    const payload = action.payload;
+    if (payload.success) {
+        const editedTennisClubList = state.tennisClubList
+            .filter((club) => club._id !== payload.clubId);
+        return Object.assign({}, state, {
+            tennisClubList: editedTennisClubList,
+            isTennisClubRemoved: payload.success
+        });
+    }
+
+    return state;
+}
+
 export function tennisClubReducers(state: TennisClubState = initialState, action) {
     switch (action.type) {
         case CREATE_TENNIS_CLUB:
@@ -44,6 +59,8 @@ export function tennisClubReducers(state: TennisClubState = initialState, action
             return readOne(state, action);
         case EDIT_TENNIS_CLUB:
             return edit(state, action);
+        case REMOVE_TENNIS_CLUB:
+            return remove(state, action);
         default:
             return state;
     }
