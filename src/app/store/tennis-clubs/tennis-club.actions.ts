@@ -7,6 +7,7 @@ export const CREATE_TENNIS_CLUB = 'CREATE_TENNIS_CLUB';
 export const READ_TENNIS_CLUB_LIST = 'READ_TENNIS_CLUB_LIST';
 export const READ_ONE_TENNIS_CLUB = 'READ_ONE_TENNIS_CLUB';
 export const EDIT_TENNIS_CLUB = 'EDIT_TENNIS_CLUB';
+export const REMOVE_TENNIS_CLUB = 'REMOVE_TENNIS_CLUB';
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,16 @@ export class TennisClubActions {
             .subscribe((response) => {
                 this.store.dispatch({
                     type: EDIT_TENNIS_CLUB,
+                    payload: response
+                });
+            });
+    }
+
+    remove(tennisClubId) {
+        this.tennisClubService.remove(tennisClubId)
+            .subscribe((response) => {
+                this.store.dispatch({
+                    type: REMOVE_TENNIS_CLUB,
                     payload: response
                 });
             });
