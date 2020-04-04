@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
-import { Observable, of } from 'rxjs';
-import { tap, mapTo, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap, mapTo } from 'rxjs/operators';
 import { TennisClubService } from './tennis-club.service';
 import { READ_TENNIS_CLUB_LIST } from '../../store/tennis-clubs/tennis-club.actions';
 
@@ -26,8 +26,7 @@ export class TennisClubListResolver implements Resolve<Observable<boolean>> {
                         payload: response
                     });
                 }),
-                mapTo(true),
-                catchError((error) => of(error))
+                mapTo(true)
             );
     }
 }

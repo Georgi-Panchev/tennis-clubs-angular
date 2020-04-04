@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 
@@ -30,7 +30,7 @@ export class ResponseHandlerInterceptor {
                         errorMessage = 'Not Found!';
                     }
                     this.toastrService.error(errorMessage, 'Error');
-                    throw error;
+                    return throwError(error);
                 })
             );
     }
