@@ -4,7 +4,8 @@ import {
     READ_TENNIS_TOURNAMENT_LIST,
     READ_ONE_TENNIS_TOURNAMENT,
     EDIT_TENNIS_TOURNAMENT,
-    READ_TENNIS_TOURNAMENT_LIST_BY_CLUB
+    READ_TENNIS_TOURNAMENT_LIST_BY_CLUB,
+    READ_TENNIS_TOURNAMENT_LIST_BY_USER
 } from './tennis-tournament.actions';
 
 function create(state, action) {
@@ -42,6 +43,13 @@ function readByClub(state, action) {
     });
 }
 
+function readByUser(state, action) {
+    const payload = action.payload;
+    return Object.assign({}, state, {
+        tennisTournamentListByUser: payload.tournaments
+    });
+}
+
 export function tennisTournamentReducers(state: TennisTournamentState = initialState, action) {
     switch (action.type) {
         case CREATE_TENNIS_TOURNAMENT:
@@ -54,6 +62,8 @@ export function tennisTournamentReducers(state: TennisTournamentState = initialS
             return edit(state, action);
         case READ_TENNIS_TOURNAMENT_LIST_BY_CLUB:
             return readByClub(state, action);
+        case READ_TENNIS_TOURNAMENT_LIST_BY_USER:
+            return readByUser(state, action);
         default:
             return state;
     }

@@ -6,6 +6,7 @@ export interface TennisTournamentState {
     tennisTournament: TennisTournamentModel;
     isTennisTournamentEdited: boolean;
     tennisTournamentListByClub: TennisTournamentModel[];
+    tennisTournamentListByUser: TennisTournamentModel[];
 }
 
 export const initialState: TennisTournamentState = {
@@ -13,5 +14,6 @@ export const initialState: TennisTournamentState = {
     tennisTournamentList: [],
     tennisTournament: null,
     isTennisTournamentEdited: false,
-    tennisTournamentListByClub: []
+    tennisTournamentListByClub: [],
+    tennisTournamentListByUser: []
 };
