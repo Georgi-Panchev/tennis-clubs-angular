@@ -6,11 +6,13 @@ import { AuthUserActivate } from '../core/guards/auth-user-activate.guard';
 
 import { TennisTournamentListResolver } from './shared/tennis-tournament-list.resolver';
 import { TennisTournamentDetailsResolver } from './shared/tennis-tournament-details.resolver';
+import { TennisTournamentListByClubResolver } from './shared/tennis-tournament-list-by-club.resolver';
 
 import { TennisTournamentListComponent } from './tennis-tournament-list/tennis-tournament-list.component';
 import { TennisTournamentCreateComponent } from './tennis-tournament-create/tennis-tournament-create.component';
 import { TennisTournamentDetailsComponent } from './tennis-tournament-details/tennis-tournament-details.component';
 import { TennisTournamentEditComponent } from './tennis-tournament-edit/tennis-tournament-edit.component';
+import { TennisTournamentListByClubComponent } from './tennis-tournament-list-by-club/tennis-tournament-list-by-club.component';
 
 const routes: Routes = [
     {
@@ -38,6 +40,12 @@ const routes: Routes = [
         path: ':tennisTournamentId/edit',
         canActivate: [ AuthAdminActivate ],
         component: TennisTournamentEditComponent
+    },
+    {
+        path: 'list/:tennisClubId',
+        canActivate: [ AuthAdminActivate ],
+        resolve: [ TennisTournamentListByClubResolver ],
+        component: TennisTournamentListByClubComponent
     }
 ];
 
