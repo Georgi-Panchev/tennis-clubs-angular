@@ -18,6 +18,7 @@ export class TennisTournamentFormComponent implements OnInit {
 
     ngOnInit(): void {
         const imageUrlPattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
         this.form = this.formBuilder.group({
             title: [ (this.tennisTournament && this.tennisTournament.title) || '',
                 [ Validators.required, Validators.minLength(3) ] ],
