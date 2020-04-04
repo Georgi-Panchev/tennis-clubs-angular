@@ -20,6 +20,7 @@ export class UserActions {
     register(user) {
         this.userService.register(user)
             .subscribe((response) => {
+                console.log(response)
                 this.store.dispatch({
                     type: REGISTER_USER,
                     payload: response

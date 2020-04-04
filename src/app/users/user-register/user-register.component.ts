@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
-import { UserActions } from '../../store/users/user.actions';
+import { UserActions, REGISTER_USER } from '../../store/users/user.actions';
 
 @Component({
     selector: 'app-user-register',
@@ -27,9 +27,14 @@ export class UserRegisterComponent implements OnDestroy {
             this.store
                 .select((state: AppState) => state.users.isUserRegistered)
                 .subscribe((isUserRegistered: boolean) => {
+                    console.log(isUserRegistered)
                     if (isUserRegistered) {
                         this.router.navigateByUrl('users/login');
                     }
+                    this.store.dispatch({
+                        type: REGISTER_USER,
+                        payload: { success: false }
+                    });
                 })
         );
     }
