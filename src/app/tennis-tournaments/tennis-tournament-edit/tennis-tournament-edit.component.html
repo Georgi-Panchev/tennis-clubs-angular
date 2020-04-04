@@ -1,0 +1,8 @@
+<div class="text-center">
+    <h3 class="mb-5">Edit Tennis Tournament</h3>
+    <app-tennis-tournament-form
+        (formEventEmitter)="edit($event)"
+        [tennisTournament]="tennisTournament"
+        [buttonText]="'Edit Tennis Tournament'">
+    </app-tennis-tournament-form>
+</div>

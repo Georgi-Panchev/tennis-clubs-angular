@@ -8,6 +8,7 @@ import { TennisTournamentCreateComponent } from './tennis-tournament-create/tenn
 import { TennisTournamentComponent } from './tennis-tournament/tennis-tournament.component';
 import { TennisTournamentListComponent } from './tennis-tournament-list/tennis-tournament-list.component';
 import { TennisTournamentDetailsComponent } from './tennis-tournament-details/tennis-tournament-details.component';
+import { TennisTournamentEditComponent } from './tennis-tournament-edit/tennis-tournament-edit.component';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { TennisTournamentDetailsComponent } from './tennis-tournament-details/te
         TennisTournamentCreateComponent,
         TennisTournamentComponent,
         TennisTournamentListComponent,
-        TennisTournamentDetailsComponent
+        TennisTournamentDetailsComponent,
+        TennisTournamentEditComponent
     ],
     imports: [
         CommonModule,
