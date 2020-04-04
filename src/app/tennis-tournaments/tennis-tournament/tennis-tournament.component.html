@@ -1,0 +1,19 @@
+<div class="col mb-4">
+    <div class="card text-center" style="height: 25rem">
+        <img [src]="tennisTournament.imageUrl" class="card-img-top" style="height: 15rem" alt="pic">
+        <div class="card-body">
+            <h5 class="card-title">{{tennisTournament.title}}</h5>
+            <p class="card-text">{{tennisTournament.club.title}}</p>
+            <a *ngIf="userState.isUserAuthenticated"
+               [routerLink]="[ '/tennis-tournaments', tennisTournament._id, 'details' ]"
+               class="btn btn-primary">
+                Details
+            </a>
+            <button type="button" class="btn btn-danger ml-1 mr-1"
+                    *ngIf="userState.user.roles.includes('Admin')"
+                    (click)="removeTournament(tennisTournament._id)">
+                Delete
+            </button>
+        </div>
+    </div>
+</div>
