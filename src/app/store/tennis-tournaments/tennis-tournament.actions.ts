@@ -4,6 +4,7 @@ import { AppState } from '../app.state';
 import { TennisTournamentService } from '../../tennis-tournaments/shared/tennis-tournament.service';
 
 export const CREATE_TENNIS_TOURNAMENT = 'CREATE_TENNIS_TOURNAMENT';
+export const READ_TENNIS_TOURNAMENT_LIST = 'READ_TENNIS_TOURNAMENT_LIST';
 
 @Injectable({
     providedIn: 'root'
