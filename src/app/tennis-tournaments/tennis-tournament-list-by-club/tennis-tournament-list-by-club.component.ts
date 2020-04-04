@@ -6,8 +6,7 @@ import { AppState } from '../../store/app.state';
 
 @Component({
     selector: 'app-tennis-tournament-list-by-club',
-    templateUrl: './tennis-tournament-list-by-club.component.html',
-    styleUrls: [ './tennis-tournament-list-by-club.component.css' ]
+    templateUrl: './tennis-tournament-list-by-club.component.html'
 })
 export class TennisTournamentListByClubComponent {
     tennisTournamentListByClub$: Observable<TennisTournamentModel[]>;
