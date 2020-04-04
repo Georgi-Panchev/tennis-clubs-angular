@@ -9,6 +9,7 @@ export const READ_ONE_TENNIS_TOURNAMENT = 'READ_ONE_TENNIS_TOURNAMENT';
 export const EDIT_TENNIS_TOURNAMENT = 'EDIT_TENNIS_TOURNAMENT';
 export const READ_TENNIS_TOURNAMENT_LIST_BY_CLUB = 'READ_TENNIS_TOURNAMENT_LIST_BY_CLUB';
 export const READ_TENNIS_TOURNAMENT_LIST_BY_USER = 'READ_TENNIS_TOURNAMENT_LIST_BY_USER';
+export const ATTEND_TENNIS_TOURNAMENT = 'ATTEND_TENNIS_TOURNAMENT';
 
 @Injectable({
     providedIn: 'root'
@@ -35,6 +36,16 @@ export class TennisTournamentActions {
             .subscribe((response) => {
                 this.store.dispatch({
                     type: EDIT_TENNIS_TOURNAMENT,
+                    payload: response
+                });
+            });
+    }
+
+    attend(tennisTournamentId) {
+        this.tennisTournamentService.attend(tennisTournamentId)
+            .subscribe((response) => {
+                this.store.dispatch({
+                    type: ATTEND_TENNIS_TOURNAMENT,
                     payload: response
                 });
             });
