@@ -5,11 +5,13 @@ export interface TennisTournamentState {
     tennisTournamentList: TennisTournamentModel[];
     tennisTournament: TennisTournamentModel;
     isTennisTournamentEdited: boolean;
+    tennisTournamentListByClub: TennisTournamentModel[];
 }
 
 export const initialState: TennisTournamentState = {
     isTennisTournamentCreated: false,
     tennisTournamentList: [],
     tennisTournament: null,
-    isTennisTournamentEdited: false
+    isTennisTournamentEdited: false,
+    tennisTournamentListByClub: []
 };
