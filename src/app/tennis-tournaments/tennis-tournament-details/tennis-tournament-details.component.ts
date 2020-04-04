@@ -44,7 +44,7 @@ export class TennisTournamentDetailsComponent implements OnInit, OnDestroy {
     }
 
     leaveTournament(tennisTournamentId) {
-
+        this.tennisTournamentActions.leave(tennisTournamentId);
     }
 
     ngOnDestroy(): void {
