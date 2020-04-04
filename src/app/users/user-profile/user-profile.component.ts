@@ -6,11 +6,11 @@ import { AppState } from '../../store/app.state';
 
 @Component({
     selector: 'app-user-profile',
-    templateUrl: './user-profile.component.html',
-    styleUrls: [ './user-profile.component.css' ]
+    templateUrl: './user-profile.component.html'
 })
 export class UserProfileComponent {
     userTennisTournamentList$: Observable<TennisTournamentModel[]>;
+
     // eslint-disable-next-line no-useless-constructor
     constructor(private store: Store<AppState>) {
         this.userTennisTournamentList$ = this.store

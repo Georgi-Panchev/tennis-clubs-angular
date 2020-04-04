@@ -6,6 +6,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TennisTournamentsModule } from '../tennis-tournaments/tennis-tournaments.module';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     imports: [
         CommonModule,
         FormsModule,
-        UsersRoutingModule
+        UsersRoutingModule,
+        TennisTournamentsModule
     ]
 })
 export class UsersModule {}

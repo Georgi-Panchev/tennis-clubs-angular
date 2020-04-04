@@ -26,6 +26,8 @@ import { TennisTournamentListByClubComponent } from './tennis-tournament-list-by
         ReactiveFormsModule,
         TennisTournamentsRoutingModule
     ],
-    exports: []
+    exports: [
+        TennisTournamentComponent
+    ]
 })
 export class TennisTournamentsModule {}
