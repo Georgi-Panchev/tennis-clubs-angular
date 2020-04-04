@@ -1,0 +1,62 @@
+<form [formGroup]="form" (submit)="submit()">
+    <div class="row">
+        <div class="form-group col">
+            <label for="title">Title: </label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.title.touched && formControls.title.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.title.errors?.minlength">
+                Title must be at least 3 characters long!
+            </div>
+        </div>
+
+        <div class="form-group col">
+            <label for="imageUrl">Image Url: </label>
+            <input type="url" class="form-control" id="imageUrl" formControlName="imageUrl">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.imageUrl.touched && formControls.imageUrl.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.imageUrl.errors?.pattern">
+                Image Url must be valid!
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            <label for="balls">Balls: </label>
+            <select class="form-control" id="balls" formControlName="balls">
+                <option value="" disabled selected>Select one of options below</option>
+                <option [value]="balls" *ngFor="let balls of ballList">{{balls}}</option>
+            </select>
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.balls.touched && formControls.balls.errors?.required">
+                This field is required!
+            </div>
+        </div>
+
+        <div class="form-group col">
+            <label for="fee">Fee: </label>
+            <input type="number" class="form-control" id="fee" formControlName="fee">
+
+            <div class="alert alert-danger"
+                 *ngIf="formControls.fee.touched && formControls.fee.errors?.required">
+                This field is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="formControls.fee.errors?.min">
+                Fee value must be at least one!
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-5" [disabled]="form.invalid">
+        {{buttonText}}
+    </button>
+</form>
+
