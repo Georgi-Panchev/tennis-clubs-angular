@@ -5,6 +5,7 @@ import { TennisTournamentService } from '../../tennis-tournaments/shared/tennis-
 
 export const CREATE_TENNIS_TOURNAMENT = 'CREATE_TENNIS_TOURNAMENT';
 export const READ_TENNIS_TOURNAMENT_LIST = 'READ_TENNIS_TOURNAMENT_LIST';
+export const READ_ONE_TENNIS_TOURNAMENT = 'READ_ONE_TENNIS_TOURNAMENT';
 
 @Injectable({
     providedIn: 'root'

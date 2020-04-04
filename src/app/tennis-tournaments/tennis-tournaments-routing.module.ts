@@ -5,7 +5,6 @@ import { AuthAdminActivate } from '../core/guards/auth-admin-activate.guard';
 
 import { TennisTournamentListResolver } from './shared/tennis-tournament-list.resolver';
 
-
 import { TennisTournamentListComponent } from './tennis-tournament-list/tennis-tournament-list.component';
 import { TennisTournamentCreateComponent } from './tennis-tournament-create/tennis-tournament-create.component';
 
