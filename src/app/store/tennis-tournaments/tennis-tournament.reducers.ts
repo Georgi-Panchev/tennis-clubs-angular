@@ -7,7 +7,8 @@ import {
     READ_TENNIS_TOURNAMENT_LIST_BY_CLUB,
     READ_TENNIS_TOURNAMENT_LIST_BY_USER,
     ATTEND_TENNIS_TOURNAMENT,
-    LEAVE_TENNIS_TOURNAMENT
+    LEAVE_TENNIS_TOURNAMENT,
+    REMOVE_TENNIS_TOURNAMENT
 } from './tennis-tournament.actions';
 
 function create(state, action) {
@@ -82,6 +83,20 @@ function leave(state, action) {
     return state;
 }
 
+function remove(state, action) {
+    const payload = action.payload;
+    if (payload.success) {
+        const editedTournamentList = state.tennisTournamentList
+            .filter((tournament) => tournament._id !== payload.tournamentId);
+        return Object.assign({}, state, {
+            tennisTournamentList: editedTournamentList,
+            isTennisTournamentRemoved: payload.success
+        });
+    }
+
+    return state;
+}
+
 export function tennisTournamentReducers(state: TennisTournamentState = initialState, action) {
     switch (action.type) {
         case CREATE_TENNIS_TOURNAMENT:
@@ -100,6 +115,8 @@ export function tennisTournamentReducers(state: TennisTournamentState = initialS
             return attend(state, action);
         case LEAVE_TENNIS_TOURNAMENT:
             return leave(state, action);
+        case REMOVE_TENNIS_TOURNAMENT:
+            return remove(state, action);
         default:
             return state;
     }
