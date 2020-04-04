@@ -1,7 +1,8 @@
 import { initialState, TennisTournamentState } from './tennis-tournament.state';
 import {
     CREATE_TENNIS_TOURNAMENT,
-    READ_TENNIS_TOURNAMENT_LIST
+    READ_TENNIS_TOURNAMENT_LIST,
+    READ_ONE_TENNIS_TOURNAMENT
 } from './tennis-tournament.actions';
 
 function create(state, action) {
@@ -18,12 +19,21 @@ function read(state, action) {
     });
 }
 
+function readOne(state, action) {
+    const payload = action.payload;
+    return Object.assign({}, state, {
+        tennisTournament: payload.tournament
+    });
+}
+
 export function tennisTournamentReducers(state: TennisTournamentState = initialState, action) {
     switch (action.type) {
         case CREATE_TENNIS_TOURNAMENT:
             return create(state, action);
         case READ_TENNIS_TOURNAMENT_LIST:
             return read(state, action);
+        case READ_ONE_TENNIS_TOURNAMENT:
+            return readOne(state, action);
         default:
             return state;
     }

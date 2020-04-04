@@ -3,9 +3,11 @@ import { TennisTournamentModel } from '../../tennis-tournaments/shared/tennis-to
 export interface TennisTournamentState {
     isTennisTournamentCreated: boolean;
     tennisTournamentList: TennisTournamentModel[];
+    tennisTournament: TennisTournamentModel;
 }
 
 export const initialState: TennisTournamentState = {
     isTennisTournamentCreated: false,
-    tennisTournamentList: []
+    tennisTournamentList: [],
+    tennisTournament: null
 };
