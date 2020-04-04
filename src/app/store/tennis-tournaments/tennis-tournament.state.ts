@@ -4,10 +4,12 @@ export interface TennisTournamentState {
     isTennisTournamentCreated: boolean;
     tennisTournamentList: TennisTournamentModel[];
     tennisTournament: TennisTournamentModel;
+    isTennisTournamentEdited: boolean;
 }
 
 export const initialState: TennisTournamentState = {
     isTennisTournamentCreated: false,
     tennisTournamentList: [],
-    tennisTournament: null
+    tennisTournament: null,
+    isTennisTournamentEdited: false
 };
