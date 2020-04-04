@@ -34,6 +34,7 @@ export class TennisClubEditComponent implements OnInit, OnDestroy {
 
     edit(tennisClub) {
         console.log(tennisClub);
+
         this.subscription.add(
             this.activatedRoute.params
                 .subscribe((params: Params) => (

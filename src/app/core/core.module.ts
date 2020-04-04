@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { HttpClientService } from './services/http-client.service';
-
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,9 +20,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
         HttpClientModule,
         RouterModule
     ],
-    providers: [
-        HttpClientService
-    ],
+    providers: [],
     exports: [
         HeaderComponent,
         FooterComponent
