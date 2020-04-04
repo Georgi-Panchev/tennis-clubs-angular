@@ -1,0 +1,38 @@
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img [src]="tennisTournament.imageUrl" class="card-img" style="height: 20rem; width: 20rem" alt="pic">
+        </div>
+        <div class="jumbotron col-4 text-center" style="height: 20rem;">
+            <h1 class="display-4">{{tennisTournament.title}}</h1>
+        </div>
+        <ul class="list-group list-group col-4">
+            <h3 class="text-center mt-3 mb-3">Registered Players</h3>
+            <li class="list-group-item"
+                *ngFor="let player of tennisTournament.playersRegistered">
+                {{player.username}}
+            </li>
+        </ul>
+        <ul class="list-group list-group-horizontal col-8">
+            <li class="list-group-item flex-fill">Tennis Balls: {{tennisTournament.balls}}</li>
+            <li class="list-group-item flex-fill">Fee: {{tennisTournament.fee}}</li>
+        </ul>
+        <div class="jumbotron col-12 text-center" *ngIf="userState.isUserAuthenticated">
+            <button type="button" class="btn btn-success ml-1 mr-1"
+                    [disabled]="isTournamentAttended"
+                    (click)="attendTournament(tennisTournament._id)">
+                Attend Tournament
+            </button>
+            <button type="button" class="btn btn-danger ml-1 mr-1"
+                    [disabled]="!isTournamentAttended"
+                    (click)="leaveTournament(tennisTournament._id)">
+                Leave Tournament
+            </button>
+            <button type="button" class="btn btn-primary ml-1 mr-1"
+                    *ngIf="userState.user.roles.includes('Admin')"
+                    [routerLink]="[ '/tennis-tournaments', tennisTournament._id, 'edit' ]">
+                Edit Tennis Tournament
+            </button>
+        </div>
+    </div>
+</div>
