@@ -27,7 +27,6 @@ export class UserRegisterComponent implements OnDestroy {
             this.store
                 .select((state: AppState) => state.users.isUserRegistered)
                 .subscribe((isUserRegistered: boolean) => {
-                    console.log(isUserRegistered)
                     if (isUserRegistered) {
                         this.router.navigateByUrl('users/login');
                     }

@@ -3,7 +3,6 @@ import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from './user.actions';
 
 function register(state, action) {
     const payload = action.payload;
-    console.log(payload)
     return Object.assign({}, state, {
         isUserRegistered: payload.success
     });
