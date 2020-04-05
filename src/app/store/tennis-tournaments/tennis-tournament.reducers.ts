@@ -34,9 +34,17 @@ function readOne(state, action) {
 
 function edit(state, action) {
     const payload = action.payload;
-    return Object.assign({}, state, {
-        isTennisTournamentEdited: payload.success
-    });
+    if (payload.success) {
+        const filteredTennisTournamentList = state.tennisTournamentList
+            .filter((tournament) => tournament._id !== payload.tournament._id);
+        return Object.assign({}, state, {
+            tennisTournamentList: [ ...filteredTennisTournamentList, payload.tournament ],
+            tennisTournament: payload.tournament,
+            isTennisTournamentEdited: payload.success
+        });
+    }
+
+    return state;
 }
 
 function readByClub(state, action) {

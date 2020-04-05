@@ -30,9 +30,17 @@ function readOne(state, action) {
 
 function edit(state, action) {
     const payload = action.payload;
-    return Object.assign({}, state, {
-        isTennisClubEdited: payload.success
-    });
+    if (payload.success) {
+        const filteredTennisClubList = state.tennisClubList
+            .filter((club) => club._id !== payload.club._id);
+        return Object.assign({}, state, {
+            tennisClubList: [ ...filteredTennisClubList, payload.club ],
+            tennisClub: payload.club,
+            isTennisClubEdited: payload.success
+        });
+    }
+
+    return state;
 }
 
 function remove(state, action) {
