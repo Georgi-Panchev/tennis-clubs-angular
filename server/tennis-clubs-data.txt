@@ -1,0 +1,22 @@
+{
+    "username": "maria",
+    "password": "maria"
+}
+
+{
+	"title": "Velto",
+    "imageUrl": "https://clickandplay.bg/f/news/m/0/e87a715525529e0aae6a3da61edc8ecd.png",
+    "city": "Varna",
+    "rank": "Low",
+    "courts": 2,
+    "hasLighting": true,
+    "hasIndoorCourts": true
+}
+
+{
+    "title": "Ladies Open",
+    "imageUrl": "http://tennisvarna.net/wp-content/uploads/2016/07/Depositphotos_26119823_original-1024x400.jpg",
+    "balls": "Wilson",
+    "fee": 30
+}
+
